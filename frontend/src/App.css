@@ -1,0 +1,80 @@
+/* ---------------------- Global Styles ---------------------- */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: sans-serif;
+
+  /* Full-page responsive background */
+  background-image: url('./pages/all.jpeg'); /* update path */
+  background-size: cover;          /* scale to cover entire screen */
+  background-position: center;     /* center image */
+  background-repeat: no-repeat;    /* prevent tiling */
+  background-attachment: fixed;    /* stays fixed while scrolling */
+}
+
+/* ---------------------- App Container ---------------------- */
+.App {
+  text-align: center;
+}
+
+/* ---------------------- Logo Animation ---------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+/* ---------------------- Header ---------------------- */
+.App-header {
+  background-color: rgba(40, 44, 52, 0.8); /* semi-transparent overlay */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+/* ---------------------- Links ---------------------- */
+.App-link {
+  color: #61dafb;
+  text-decoration: none;
+}
+
+/* ---------------------- Logo Spin Keyframes ---------------------- */
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------------------- Content Container ---------------------- */
+.container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.85); /* slightly transparent */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------------------- Mobile Responsiveness ---------------------- */
+@media (max-width: 768px) {
+  body, html {
+    background-position: top center; /* focus on top part of image */
+  }
+
+  .container {
+    margin: 40px 10px;
+    padding: 15px;
+  }
+
+  .App-header {
+    font-size: calc(8px + 4vmin);
+  }
+}

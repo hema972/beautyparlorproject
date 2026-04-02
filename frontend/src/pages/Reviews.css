@@ -1,0 +1,133 @@
+/* Full page background */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+
+  background-image: url("./all.jpeg"); /* your uploaded image */
+  background-size: cover;       /* cover entire page */
+  background-position: center;  /* center the image */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* fixed when scrolling */
+}
+
+/* Container for form and reviews, centered */
+.reviews-container {
+  max-width: 700px;
+  margin: 100px auto 40px;
+  padding: 20px;
+
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  background-color: rgba(255,255,255,0.85); /* slightly transparent white */
+}
+
+/* Review form */
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.review-form input,
+.review-form textarea {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: rgba(255,255,255,0.95);
+}
+
+.review-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.review-form button {
+  background-color: #ff1493;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.review-form button:hover {
+  background-color: #e60084;
+}
+
+/* Reviews list */
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.review-card {
+  padding: 15px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.85); /* slightly transparent */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 8px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  background-color: #ff1493;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.email {
+  font-size: 13px;
+  color: #555;
+}
+
+.comment {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .reviews-container {
+    margin: 60px 10px 20px;
+    padding: 15px;
+  }
+
+  .review-form input,
+  .review-form textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .review-form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .comment {
+    font-size: 14px;
+  }
+}

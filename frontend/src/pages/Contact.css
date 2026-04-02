@@ -1,0 +1,76 @@
+/* Background */
+.contact-container {
+  background-size: cover;
+  background-position: 70% center;
+  background-repeat: no-repeat;
+
+  min-height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 100px 20px;
+}
+
+/* Overlay (light card wrapper) */
+.contact-overlay {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 12px;
+
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Title */
+.contact-title {
+  text-align: center;
+  color: #e91e63;
+  margin-bottom: 20px;
+}
+
+/* Layout */
+.contact-content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Left */
+.contact-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Right */
+.contact-map {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Map */
+.map {
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* Note */
+.note {
+  margin-top: 10px;
+  color: #e91e63;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+  }
+
+  .contact-container {
+    background-position: center;
+  }
+}

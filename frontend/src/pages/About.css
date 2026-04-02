@@ -1,0 +1,76 @@
+/* 🔥 Background */
+.about-container {
+  background-size: cover;
+  background-position: 70% center;
+  background-repeat: no-repeat;
+
+  min-height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;   /* 🔥 move content to left */
+
+  padding: 100px 80px;           /* 🔥 more space from left edge */
+}
+
+/* ❌ Removed black overlay */
+/* ✅ Left side content */
+.about-content {
+  max-width: 420px;              /* 🔥 reduce width (important) */
+  color: #222;
+
+  background: rgba(255, 255, 255, 0.85);
+  padding: 25px;
+  border-radius: 12px;
+  margin-right: 300px;
+  text-align: left;              /* 🔥 clean alignment */
+}
+
+/* Title */
+.about-title {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin-bottom: 20px;
+  color: #e91e63;
+}
+
+/* Text */
+.about-text {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+/* Sections */
+.about-section {
+  margin: 15px 0;
+}
+
+.about-section h2 {
+  margin-bottom: 8px;
+  color: #e91e63;
+}
+
+/* List */
+.about-section ul {
+  padding-left: 15px;
+}
+
+/* Footer */
+.about-footer {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #e91e63;
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .about-container {
+    justify-content: center;
+    background-position: center;
+    padding: 100px 20px;
+  }
+
+  .about-content {
+    max-width: 100%;
+  }
+}
