@@ -12,11 +12,11 @@ app.use(express.json());
 app.use("/api/services", require("./routes/serviceRoutes"));
 app.use("/api/appointments", require("./routes/appointmentRoutes"));
 app.use("/api/reviews", require("./routes/reviewRoutes"));
-
-// new WhatsApp route
 app.use("/api/whatsapp", require("./routes/WhatsappRoutes"));
 
 // DB connect
 connectDB();
 
-app.listen(5000, () => console.log("Server running on 5000"));
+// ✅ FIXED PART
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));
