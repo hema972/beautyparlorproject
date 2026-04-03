@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import beautyImage from "./homee.jpeg";
 
+
 const Home = () => {
   const navigate = useNavigate();
 
