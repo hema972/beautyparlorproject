@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Services.css";
 
-// ✅ Import local images
+// images
 import facialImg from "./facial.png";
 import bleachImg from "./bleach.png";
 import waxImg from "./wax.png";
@@ -16,50 +16,54 @@ import jewelryImg from "./jewelery.png";
 
 export default function Services() {
   const [services, setServices] = useState([]);
+  const [show, setShow] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("https://beautyparlorproject.onrender.com/api/services")
-      .then(res => {
-        const merged = res.data.map(s => ({ ...s }));
+    axios
+      .get("https://beautyparlorproject.onrender.com/api/services")
+      .then((res) => {
+        const merged = res.data.map((s) => ({ ...s }));
 
-        const pedicure = merged.find(s => s.name.toLowerCase() === "pedicure");
-        const manicure = merged.find(s => s.name.toLowerCase() === "manicure");
+        const pedicure = merged.find(
+          (s) => s.name.toLowerCase() === "pedicure"
+        );
+        const manicure = merged.find(
+          (s) => s.name.toLowerCase() === "manicure"
+        );
 
         if (pedicure && manicure) {
           pedicure.items = [...pedicure.items, ...manicure.items];
           pedicure.name = "Pedicure + Manicure";
 
           const filtered = merged.filter(
-            s => s.name.toLowerCase() !== "manicure"
+            (s) => s.name.toLowerCase() !== "manicure"
           );
           setServices(filtered);
         } else {
           setServices(merged);
         }
+
+        setTimeout(() => setShow(true), 100); // ✨ animation trigger
       })
-      .catch(err => console.error("Failed to fetch services:", err));
+      .catch((err) => console.error("Failed to fetch services:", err));
   }, []);
 
   return (
-    <div className="services-container">
+    <div className={`services-container ${show ? "show" : ""}`}>
       {services.length === 0 ? (
-        <p>Loading services...</p>
+        <p className="loading">Loading services...</p>
       ) : (
-        services.map(service => (
+        services.map((service) => (
           <div className="service-card" key={service._id}>
-            
-            {/* ✅ Image */}
             <img
               src={getImage(service.name)}
               alt={service.name}
               className="service-img"
             />
 
-            {/* ✅ Title */}
             <h2 className="service-category">{service.name}</h2>
 
-            {/* ✅ Items */}
             <div className="service-items">
               {service.items.map((item, index) => (
                 <p key={index}>
@@ -68,15 +72,16 @@ export default function Services() {
               ))}
             </div>
 
-            {/* ✅ Button */}
-           <button
-  className="book-btn"
-  onClick={() =>
-    navigate(`/book/${service._id}`, { state: { items: service.items } })
-  }
->
-  Book Now
-</button>
+            <button
+              className="book-btn"
+              onClick={() =>
+                navigate(`/book/${service._id}`, {
+                  state: { items: service.items },
+                })
+              }
+            >
+              Book Now
+            </button>
           </div>
         ))
       )}
@@ -84,7 +89,7 @@ export default function Services() {
   );
 }
 
-// ✅ Function to map service name → local image
+// image mapping
 function getImage(name) {
   switch (name.toLowerCase()) {
     case "facial":
