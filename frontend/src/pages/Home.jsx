@@ -1,9 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import beautyImage from "./homee.jpeg";
 
 const Home = () => {
-  const navigate = useNavigate();
-
   return (
     <div style={styles.container}>
       <div style={styles.overlay}>
@@ -47,7 +44,6 @@ const styles = {
 
   subtitle: {
     fontSize: "18px",
-    marginBottom: "0px",
   },
 };
 
