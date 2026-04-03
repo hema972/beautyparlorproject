@@ -5,13 +5,13 @@ import { useParams, useLocation } from "react-router-dom";
 export default function Book() {
   const { id } = useParams();
   const location = useLocation();
-  const serviceItems = location.state?.items || []; // dynamic items
+  const serviceItems = location.state?.items || [];
 
   const [form, setForm] = useState({
     name: "",
     phone: "",
     time: "",
-    serviceType: "" // selected variant
+    serviceType: ""
   });
 
   const [loading, setLoading] = useState(false);
@@ -19,11 +19,12 @@ export default function Book() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // ✅ Simple validation
+    // ✅ Validation
     if (!form.name || !form.phone || !form.time || !form.serviceType) {
       alert("Please fill all fields!");
       return;
     }
+
     if (!/^\d{10}$/.test(form.phone)) {
       alert("Enter a valid 10-digit phone number");
       return;
@@ -32,20 +33,36 @@ export default function Book() {
     try {
       setLoading(true);
 
-      // 1️⃣ Save appointment in your DB
-      await axios.post("https://beautyparlorproject.onrender.com/api/appointments", {
-        serviceId: id,
-        ...form
-      });
+      // 1️⃣ Save appointment
+      await axios.post(
+        "https://beautyparlorproject.onrender.com/api/appointments",
+        {
+          serviceId: id,
+          ...form
+        }
+      );
 
-      // 2️⃣ Request WhatsApp link from backend
-      const response = await axios.post("https://beautyparlorproject.onrender.com/api/whatsapp/send", form);
+      // 2️⃣ Get WhatsApp URL
+      const response = await axios.post(
+        "https://beautyparlorproject.onrender.com/api/whatsapp/send",
+        form
+      );
 
-      // 3️⃣ Open WhatsApp
-      window.open(response.data.waUrl);
+      console.log("WA URL:", response.data.waUrl);
+
+      // 3️⃣ Open WhatsApp (works on mobile + desktop)
+      const waUrl = response.data.waUrl;
+
+      const newWindow = window.open(waUrl, "_blank");
+
+      // fallback for mobile
+      if (!newWindow) {
+        window.location.href = waUrl;
+      }
 
       alert("Appointment Booked!");
-      setForm({ name: "", phone: "", time: "", serviceType: "" }); // reset
+      setForm({ name: "", phone: "", time: "", serviceType: "" });
+
     } catch (err) {
       console.error(err);
       alert("Something went wrong. Please try again!");
@@ -62,29 +79,32 @@ export default function Book() {
         style={styles.input}
         placeholder="Name"
         value={form.name}
-        onChange={e => setForm({ ...form, name: e.target.value })}
+        onChange={(e) => setForm({ ...form, name: e.target.value })}
       />
+
       <input
         style={styles.input}
         placeholder="Phone"
         value={form.phone}
-        onChange={e => setForm({ ...form, phone: e.target.value })}
+        onChange={(e) => setForm({ ...form, phone: e.target.value })}
       />
+
       <input
         style={styles.input}
         placeholder="Time"
         value={form.time}
-        onChange={e => setForm({ ...form, time: e.target.value })}
+        onChange={(e) => setForm({ ...form, time: e.target.value })}
       />
 
-      {/* ✅ Dynamic dropdown for service variants */}
       <select
         style={styles.input}
         value={form.serviceType}
-        onChange={e => setForm({ ...form, serviceType: e.target.value })}
+        onChange={(e) =>
+          setForm({ ...form, serviceType: e.target.value })
+        }
       >
         <option value="">Select Service</option>
-        {serviceItems.map(item => (
+        {serviceItems.map((item) => (
           <option key={item.name} value={item.name}>
             {item.name} - ₹{item.price}
           </option>
