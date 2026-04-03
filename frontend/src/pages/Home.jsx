@@ -12,16 +12,6 @@ const Home = () => {
         <p style={styles.subtitle}>
           Enhance your beauty with our professional services ✨
         </p>
-
-        <div style={styles.buttons}>
-          <button style={styles.btn} onClick={() => navigate("/services")}>
-            View Services
-          </button>
-
-          <button style={styles.btnOutline} onClick={() => navigate("/contact")}>
-            Contact Us
-          </button>
-        </div>
       </div>
     </div>
   );
@@ -57,31 +47,7 @@ const styles = {
 
   subtitle: {
     fontSize: "18px",
-    marginBottom: "20px",
-  },
-
-  buttons: {
-    display: "flex",
-    gap: "15px",
-    justifyContent: "center",
-  },
-
-  btn: {
-    padding: "10px 20px",
-    backgroundColor: "#ff1493",
-    color: "#fff",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-  },
-
-  btnOutline: {
-    padding: "10px 20px",
-    backgroundColor: "transparent",
-    color: "#fff",
-    border: "2px solid #fff",
-    borderRadius: "5px",
-    cursor: "pointer",
+    marginBottom: "0px",
   },
 };
 
