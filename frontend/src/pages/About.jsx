@@ -1,15 +1,35 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./About.css";
 import aboutImg from "./all.jpeg";
 
 export default function About() {
+  const ref = useRef();
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div
       className="about-container"
       style={{ backgroundImage: `url(${aboutImg})` }}
     >
-      <div className="about-content">
-
+      <div
+        ref={ref}
+        className={`about-content ${visible ? "show" : ""}`}
+      >
         <h1 className="about-title">💄 About Our Beauty Parlour</h1>
 
         <p className="about-text">
@@ -42,7 +62,6 @@ export default function About() {
         <p className="about-footer">
           💖 Designed with care to bring out your inner beauty
         </p>
-
       </div>
     </div>
   );
