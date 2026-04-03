@@ -6,7 +6,6 @@ const Home = () => {
 
   return (
     <div style={styles.container}>
-      {/* Overlay Content */}
       <div style={styles.overlay}>
         <h1 style={styles.title}>Hema Beauty Parlour 💄</h1>
 
@@ -15,17 +14,11 @@ const Home = () => {
         </p>
 
         <div style={styles.buttons}>
-          <button
-            style={styles.btn}
-            onClick={() => navigate("/services")}
-          >
+          <button style={styles.btn} onClick={() => navigate("/services")}>
             View Services
           </button>
 
-          <button
-            style={styles.btnOutline}
-            onClick={() => navigate("/contact")}
-          >
+          <button style={styles.btnOutline} onClick={() => navigate("/contact")}>
             Contact Us
           </button>
         </div>
@@ -36,7 +29,7 @@ const Home = () => {
 
 const styles = {
   container: {
-    backgroundImage: `url(${beautyImage})`,  // ✅ FIXED HERE
+    backgroundImage: `url(${beautyImage})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",

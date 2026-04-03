@@ -4,7 +4,7 @@
   top: 0;
   width: 100%;
   height: 60px;
-  background: var(--primary-color);
+  background: #ffb6c1; /* light pink */
   display: flex;
   align-items: center;
   padding: 0 20px;
@@ -19,12 +19,14 @@
   font-weight: bold;
   font-size: 20px;
   font-family: "Playfair Display", serif;
+  color: white;
 }
 
 /* HAMBURGER */
 .hamburger {
   font-size: 28px;
   cursor: pointer;
+  color: #fff0f5; /* soft pink */
   transition: transform 0.2s ease;
 }
 
@@ -58,7 +60,7 @@
   left: -260px;
   width: 260px;
   height: 100%;
-  background: var(--card-color);
+  background: #fff0f5; /* light pink background */
   display: flex;
   flex-direction: column;
   padding-top: 70px;
@@ -74,17 +76,18 @@
 
 /* LINKS */
 .sidebar a {
-  color: var(--text-color);
+  color: #d63384;
   text-decoration: none;
   padding: 15px 20px;
   font-size: 18px;
   border-bottom: 1px solid rgba(0,0,0,0.1);
   transition: 0.2s;
+  font-weight: 500;
 }
 
 /* HOVER EFFECT */
 .sidebar a:hover {
-  background: var(--primary-color);
+  background: #ff69b4;
   color: white;
   padding-left: 25px;
 }
