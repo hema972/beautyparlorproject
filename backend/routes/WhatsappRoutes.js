@@ -1,20 +1,22 @@
+require("dotenv").config();
 const express = require("express");
-const router = express.Router();
+const cors = require("cors");
+const connectDB = require("./config/db");
 
-const whatsappNumber = process.env.WHATSAPP_NUMBER; // secure from .env
+const app = express();
 
-router.post("/send", (req, res) => {
-  const { name, phone, time, serviceType } = req.body;
+app.use(cors());
+app.use(express.json());
 
-  const msg = `New Booking:
-Name: ${name}
-Phone: ${phone}
-Time: ${time}
-Service: ${serviceType}`;
+// routes
+app.use("/api/services", require("./routes/serviceRoutes"));
+app.use("/api/appointments", require("./routes/appointmentRoutes"));
+app.use("/api/reviews", require("./routes/reviewRoutes"));
+app.use("/api/whatsapp", require("./routes/whatsappRoutes"));
 
-  const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
+// DB connect
+connectDB();
 
-  res.json({ waUrl });
-});
-
-module.exports = router;
+// ✅ FIXED PART
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));
