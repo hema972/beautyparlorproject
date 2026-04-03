@@ -5,38 +5,49 @@ import beautyImage from "./homee.jpeg";
 const Home = () => {
   const navigate = useNavigate();
 
-  const isMobile = window.innerWidth <= 768;
-
   return (
-    <div style={styles.container}>
-      <div style={{ ...styles.overlay, padding: isMobile ? "20px" : "30px" }}>
-        <h1 style={{ ...styles.title, fontSize: isMobile ? "24px" : "32px" }}>
-          Hema Beauty Parlour 💄
-        </h1>
+    <div>
+      {/* 💖 NAVBAR */}
+      <div style={styles.navbar}>
+        <div style={styles.logo}>Hema Beauty Parlour 💄</div>
 
-        <p style={{ ...styles.subtitle, fontSize: isMobile ? "14px" : "18px" }}>
-          Enhance your beauty with our professional services ✨
-        </p>
+        <div style={styles.menu}>
+          <span onClick={() => navigate("/")} style={styles.link}>
+            Home
+          </span>
+          <span onClick={() => navigate("/services")} style={styles.link}>
+            Services
+          </span>
+          <span onClick={() => navigate("/contact")} style={styles.link}>
+            Contact
+          </span>
+        </div>
+      </div>
 
-        <div
-          style={{
-            ...styles.buttons,
-            flexDirection: isMobile ? "column" : "row",
-          }}
-        >
-          <button
-            style={styles.btn}
-            onClick={() => navigate("/services")}
-          >
-            View Services
-          </button>
+      {/* 🖼️ MAIN CONTENT */}
+      <div style={styles.container}>
+        <div style={styles.overlay}>
+          <h1 style={styles.title}>Hema Beauty Parlour 💖</h1>
 
-          <button
-            style={styles.btnOutline}
-            onClick={() => navigate("/contact")}
-          >
-            Contact Us
-          </button>
+          <p style={styles.subtitle}>
+            Enhance your beauty with our professional services ✨
+          </p>
+
+          <div style={styles.buttons}>
+            <button
+              style={styles.btn}
+              onClick={() => navigate("/services")}
+            >
+              View Services
+            </button>
+
+            <button
+              style={styles.btnOutline}
+              onClick={() => navigate("/contact")}
+            >
+              Contact Us
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -44,6 +55,38 @@ const Home = () => {
 };
 
 const styles = {
+  /* 💖 NAVBAR */
+  navbar: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100%",
+    backgroundColor: "#ff1493",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "12px 20px",
+    color: "white",
+    zIndex: 1000,
+  },
+
+  logo: {
+    fontSize: "18px",
+    fontWeight: "bold",
+  },
+
+  menu: {
+    display: "flex",
+    gap: "15px",
+  },
+
+  link: {
+    cursor: "pointer",
+    fontSize: "14px",
+    color: "white",
+  },
+
+  /* 🖼️ BACKGROUND */
   container: {
     backgroundImage: `url(${beautyImage})`,
     backgroundSize: "cover",
@@ -56,20 +99,24 @@ const styles = {
     alignItems: "center",
     color: "white",
     textAlign: "center",
-    padding: "10px",
+    paddingTop: "60px", // space for navbar
   },
 
   overlay: {
     backgroundColor: "rgba(0,0,0,0.5)",
+    padding: "25px",
     borderRadius: "10px",
     maxWidth: "90%",
   },
 
   title: {
+    fontSize: "32px",
     marginBottom: "10px",
+    color: "#ff69b4", // 💖 pink title
   },
 
   subtitle: {
+    fontSize: "18px",
     marginBottom: "20px",
   },
 
@@ -77,7 +124,7 @@ const styles = {
     display: "flex",
     gap: "15px",
     justifyContent: "center",
-    alignItems: "center",
+    flexWrap: "wrap",
   },
 
   btn: {
