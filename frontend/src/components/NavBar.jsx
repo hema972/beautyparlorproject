@@ -5,25 +5,25 @@ import "./Navbar.css";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-  const closeMenu = () => setIsOpen(false);
-
   return (
-    <nav className="navbar">
-      <div className="logo">Hema Beauty</div>
-
-      <div className={`nav-links ${isOpen ? "active" : ""}`}>
-        <Link to="/" onClick={closeMenu}>Home</Link>
-        <Link to="/services" onClick={closeMenu}>Services</Link>
-        <Link to="/reviews" onClick={closeMenu}>Reviews</Link>
-        <Link to="/about" onClick={closeMenu}>About</Link>
-        <Link to="/contact" onClick={closeMenu}>Contact</Link>
+    <>
+      {/* TOP BAR */}
+      <div className="topbar">
+        <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+          ☰
+        </div>
+        <div className="logo">Hema Beauty</div>
       </div>
 
-      <div className="hamburger" onClick={toggleMenu}>
-        ☰
+      {/* SIDE MENU */}
+      <div className={`sidebar ${isOpen ? "active" : ""}`}>
+        <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
+        <Link to="/services" onClick={() => setIsOpen(false)}>Services</Link>
+        <Link to="/reviews" onClick={() => setIsOpen(false)}>Reviews</Link>
+        <Link to="/about" onClick={() => setIsOpen(false)}>About</Link>
+        <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
       </div>
-    </nav>
+    </>
   );
 };
 
