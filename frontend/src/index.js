@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './font.css';   // ✅ ADD THIS (important for Playfair font)
 import './index.css';
 import App from './App';
 

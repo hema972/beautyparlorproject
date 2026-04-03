@@ -21,11 +21,16 @@ body.dark {
   --card-color: #1e1e1e;
 }
 
-/* APPLY VARIABLES */
+/* APPLY VARIABLES + FONT */
 body {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
+}
+
+/* 💄 BEAUTY FONT FOR HEADINGS */
+h1, h2, h3, h4, .logo {
+  font-family: "Playfair Display", serif;
 }
 
 /* LINKS */
