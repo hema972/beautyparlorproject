@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Contact.css";
 import contactImg from "./all.jpeg";
 
 const Contact = () => {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setShow(true), 100);
+  }, []);
+
   return (
     <div
       className="contact-container"
       style={{
         backgroundImage: `url(${contactImg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="contact-overlay">
+      <div className={`contact-overlay ${show ? "show" : ""}`}>
 
         <h1 className="contact-title">📍 Contact Us</h1>
 
@@ -23,10 +26,9 @@ const Contact = () => {
           <div className="contact-info">
             <h2>🕒 Working Hours</h2>
             <p>Mon - Sat: 9:00 AM - 8:00 PM</p>
-            <p>Sunday : 10:30 AM - 8:00 PM</p>
+            <p>Sunday: 10:30 AM - 8:00 PM</p>
             <p>Call Before Approach</p>
-            <p>On Festival Day : Closed</p>
-            <p>NOTE : Call Before Approach</p>
+            <p>On Festival Day: Closed</p>
 
             <p className="note">
               👉 For booking, use "Book Now" in Services page.
@@ -34,25 +36,25 @@ const Contact = () => {
           </div>
 
           {/* RIGHT SIDE */}
-          <div className="contact-map" style={{ padding: "20px", color: "#333", lineHeight: "1.6" }}>
-  {/* Address - bold and larger */}
-  <p style={{ fontWeight: "bold", fontSize: "18px", marginBottom: "15px" }}>
-    📌 Address:<br /></p>
-    <p>
-    Yamaha Showroom Backside,<br />
-    Hema Beauty Parlor,<br />
-    Sadashiva Nagar,<br />
-    Hindupur, Srisatya Sai District,<br />
-    Andhra Pradesh.
-  </p>
+          <div className="contact-map">
+            <p style={{ fontWeight: "bold", fontSize: "18px", marginBottom: "10px" }}>
+              📌 Address:
+            </p>
 
-  {/* Queries / bookings - bold */}
-  <p style={{ fontWeight: "bold", marginTop: "10px" }}>
-    📞 For any queries contact to number where you booked through whatsapp
-  </p>
-</div>
+            <p>
+              Yamaha Showroom Backside,<br />
+              Hema Beauty Parlor,<br />
+              Sadashiva Nagar,<br />
+              Hindupur, Sri Sathya Sai District,<br />
+              Andhra Pradesh.
+            </p>
+
+            <p style={{ fontWeight: "bold", marginTop: "15px" }}>
+              📞 For any queries contact the number used during WhatsApp booking
+            </p>
+          </div>
+
         </div>
-
       </div>
     </div>
   );
