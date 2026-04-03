@@ -12,16 +12,17 @@ const Navbar = () => {
         <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
           ☰
         </div>
-        <div className="logo">Hema Beauty</div>
+
+        <div className="logo">Hema Beauty 💄</div>
       </div>
 
-      {/* DARK BACKGROUND OVERLAY */}
+      {/* OVERLAY */}
       <div
         className={`overlay ${isOpen ? "active" : ""}`}
         onClick={() => setIsOpen(false)}
       ></div>
 
-      {/* SIDE MENU */}
+      {/* SIDEBAR */}
       <div className={`sidebar ${isOpen ? "active" : ""}`}>
         <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
         <Link to="/services" onClick={() => setIsOpen(false)}>Services</Link>
