@@ -4,6 +4,7 @@ const Home = () => {
   return (
     <div style={styles.container}>
       <div style={styles.overlay}>
+        <h1 style={styles.title}>Welcome to</h1>
         <h1 style={styles.title}>Hema Beauty Parlour 💄</h1>
 
         <p style={styles.subtitle}>
