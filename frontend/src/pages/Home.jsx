@@ -5,39 +5,42 @@ import beautyImage from "./homee.jpeg";
 const Home = () => {
   const navigate = useNavigate();
 
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <div style={styles.container}>
-      
-      {/* Overlay Content (UNCHANGED) */}
-      <div style={styles.overlay}>
-        
-        <h1 style={styles.title}>
+      <div style={{ ...styles.overlay, padding: isMobile ? "20px" : "30px" }}>
+        <h1 style={{ ...styles.title, fontSize: isMobile ? "24px" : "32px" }}>
           Hema Beauty Parlour 💄
         </h1>
 
-        <p style={styles.subtitle}>
+        <p style={{ ...styles.subtitle, fontSize: isMobile ? "14px" : "18px" }}>
           Enhance your beauty with our professional services ✨
         </p>
 
-        <div style={styles.buttons}>
-          <button style={styles.btn} onClick={() => navigate("/services")}>
+        <div
+          style={{
+            ...styles.buttons,
+            flexDirection: isMobile ? "column" : "row",
+          }}
+        >
+          <button
+            style={styles.btn}
+            onClick={() => navigate("/services")}
+          >
             View Services
           </button>
 
-          <button style={styles.btnOutline} onClick={() => navigate("/contact")}>
+          <button
+            style={styles.btnOutline}
+            onClick={() => navigate("/contact")}
+          >
             Contact Us
           </button>
         </div>
-
       </div>
-
     </div>
   );
-};
-
-/* ✨ ONLY GLOW EFFECT */
-const glowText = {
-  textShadow: "0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff66b3",
 };
 
 const styles = {
@@ -53,33 +56,28 @@ const styles = {
     alignItems: "center",
     color: "white",
     textAlign: "center",
+    padding: "10px",
   },
 
-  /* KEEP YOUR OVERLAY AS IT IS */
   overlay: {
     backgroundColor: "rgba(0,0,0,0.5)",
-    padding: "30px",
     borderRadius: "10px",
+    maxWidth: "90%",
   },
 
-  /* 💄 GLOW ADDED ONLY HERE */
   title: {
-    fontSize: "32px",
     marginBottom: "10px",
-    ...glowText,
-    fontWeight: "bold",
   },
 
   subtitle: {
-    fontSize: "18px",
     marginBottom: "20px",
-    ...glowText,
   },
 
   buttons: {
     display: "flex",
     gap: "15px",
     justifyContent: "center",
+    alignItems: "center",
   },
 
   btn: {
@@ -89,6 +87,7 @@ const styles = {
     border: "none",
     borderRadius: "5px",
     cursor: "pointer",
+    width: "150px",
   },
 
   btnOutline: {
@@ -98,6 +97,7 @@ const styles = {
     border: "2px solid #fff",
     borderRadius: "5px",
     cursor: "pointer",
+    width: "150px",
   },
 };
 
