@@ -8,8 +8,7 @@ const Home = () => {
   return (
     <div style={styles.container}>
       
-      {/* NO NAVBAR CHANGE HERE */}
-      
+      {/* Overlay Content (UNCHANGED) */}
       <div style={styles.overlay}>
         
         <h1 style={styles.title}>
@@ -36,9 +35,9 @@ const Home = () => {
   );
 };
 
-/* ✨ Glow only */
-const glow = {
-  textShadow: "0 0 8px #ff4da6, 0 0 18px #ff4da6, 0 0 28px #ff66b3",
+/* ✨ ONLY GLOW EFFECT */
+const glowText = {
+  textShadow: "0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff66b3",
 };
 
 const styles = {
@@ -56,22 +55,25 @@ const styles = {
     textAlign: "center",
   },
 
+  /* KEEP YOUR OVERLAY AS IT IS */
   overlay: {
+    backgroundColor: "rgba(0,0,0,0.5)",
     padding: "30px",
     borderRadius: "10px",
   },
 
+  /* 💄 GLOW ADDED ONLY HERE */
   title: {
-    fontSize: "38px",
+    fontSize: "32px",
     marginBottom: "10px",
-    ...glow,   // ✨ glow applied
+    ...glowText,
     fontWeight: "bold",
   },
 
   subtitle: {
     fontSize: "18px",
     marginBottom: "20px",
-    ...glow,   // ✨ glow applied
+    ...glowText,
   },
 
   buttons: {
