@@ -4,7 +4,7 @@
   top: 0;
   width: 100%;
   height: 60px;
-  background: #e91e63; /* light pink */
+  background: #ff1493; /* light pink */
   display: flex;
   align-items: center;
   padding: 0 20px;
@@ -60,7 +60,7 @@
   left: -260px;
   width: 260px;
   height: 100%;
-  background: #fff0f5; /* light pink background */
+  background: #d63384; /* light pink background */
   display: flex;
   flex-direction: column;
   padding-top: 70px;
@@ -76,7 +76,7 @@
 
 /* LINKS */
 .sidebar a {
-  color: #f2e5ec;
+  color: white;
   text-decoration: none;
   padding: 15px 20px;
   font-size: 18px;
@@ -87,8 +87,8 @@
 
 /* HOVER EFFECT */
 .sidebar a:hover {
-  background: #e91e63;
-  color: white;
+  background: #e1a8c4;
+  color: #7d0e49;
   padding-left: 25px;
 }
 
