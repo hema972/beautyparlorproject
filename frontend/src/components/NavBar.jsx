@@ -15,6 +15,12 @@ const Navbar = () => {
         <div className="logo">Hema Beauty</div>
       </div>
 
+      {/* DARK BACKGROUND OVERLAY */}
+      <div
+        className={`overlay ${isOpen ? "active" : ""}`}
+        onClick={() => setIsOpen(false)}
+      ></div>
+
       {/* SIDE MENU */}
       <div className={`sidebar ${isOpen ? "active" : ""}`}>
         <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
