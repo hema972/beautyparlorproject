@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Contact.css";
 import contactImg from "./all.jpeg";
-
 const Contact = () => {
   const [show, setShow] = useState(false);
 
