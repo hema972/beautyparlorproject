@@ -14,14 +14,32 @@
   padding: 100px 20px;
 }
 
-/* Overlay (light card wrapper) */
+/* Overlay (main card) */
 .contact-overlay {
   background: rgba(255, 255, 255, 0.85);
   padding: 30px;
-  border-radius: 12px;
+  border-radius: 15px;
 
   width: 100%;
   max-width: 900px;
+
+  text-align: center;
+
+  /* ✨ Animation (same as About) */
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+
+/* ✨ When visible */
+.contact-overlay.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ✨ Hover effect */
+.contact-overlay:hover {
+  transform: scale(1.02);
 }
 
 /* Title */
@@ -36,6 +54,7 @@
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  text-align: left;
 }
 
 /* Left */
@@ -68,9 +87,15 @@
 @media (max-width: 768px) {
   .contact-content {
     flex-direction: column;
+    text-align: center;
   }
 
   .contact-container {
     background-position: center;
+  }
+
+  .contact-overlay {
+    max-width: 100%;
+    padding: 20px;
   }
 }
